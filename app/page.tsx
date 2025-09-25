@@ -56,6 +56,10 @@ export default function WeddingPage() {
       src: "./carosel_8.jpg",
       style: { objectPosition: "-200px top" },
     },
+    {
+      src: "./carosel_9.jpg",
+      style: { objectPosition: "-40px top" },
+    },
   ];
 
   useEffect(() => {
@@ -318,8 +322,8 @@ export default function WeddingPage() {
                     alt="Ngọc Yến - Bride"
                     className="w-full h-full object-cover"
                     style={{
-                      objectPosition: "0 0px",
-                      scale: "1.5",
+                      objectPosition: "0 10px",
+                      scale: "1.7",
                     }}
                   />
                 </div>
@@ -397,6 +401,9 @@ export default function WeddingPage() {
             <h2 className="text-5xl md:text-6xl font-eb-garamond text-gray-800 tracking-wide">
               LOVE STORY
             </h2>
+            <p className="text-lg font-quicksand text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Capturing the beautiful moments of our journey together
+            </p>
           </div>
 
           {/* Desktop layout with a centered vertical line */}

@@ -91,9 +91,7 @@ export default function PhotoAlbum({
           <h2 className="text-4xl md:text-5xl font-eb-garamond text-gray-800 mb-4">
             ALBUM ẢNH
           </h2>
-          <p className="text-lg font-quicksand text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Capturing the beautiful moments of our journey together
-          </p>
+        
         </div>
 
         {/* Mobile Carousel */}

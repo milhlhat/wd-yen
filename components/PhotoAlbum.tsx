@@ -16,22 +16,27 @@ export default function PhotoAlbum({
   autoSlideInterval = 4000 
 }: PhotoAlbumProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
   const albumSection = useScrollEffects({ threshold: 0.1 });
 
   useEffect(() => {
+    if (isUserInteracting) return;
+    
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % photos.length);
     }, autoSlideInterval);
 
     return () => clearInterval(interval);
-  }, [photos.length, autoSlideInterval]);
+  }, [photos.length, autoSlideInterval, isUserInteracting]);
 
   // Enable keyboard navigation for desktop
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
+        setIsUserInteracting(true);
         setCurrentSlide((prev) => (prev + 1) % photos.length);
       } else if (event.key === "ArrowLeft") {
+        setIsUserInteracting(true);
         setCurrentSlide(
           (prev) => (prev - 1 + photos.length) % photos.length
         );
@@ -43,10 +48,12 @@ export default function PhotoAlbum({
   }, [photos.length]);
 
   const nextSlide = () => {
+    setIsUserInteracting(true);
     setCurrentSlide((prev) => (prev + 1) % photos.length);
   };
 
   const prevSlide = () => {
+    setIsUserInteracting(true);
     setCurrentSlide(
       (prev) => (prev - 1 + photos.length) % photos.length
     );
@@ -108,7 +115,10 @@ export default function PhotoAlbum({
             {photos.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => {
+                  setIsUserInteracting(true);
+                  setCurrentSlide(index);
+                }}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
                     ? "bg-rose-500 scale-125"

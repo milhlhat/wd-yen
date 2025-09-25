@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: "26-10-2025 l Chúng mình cưới ♥",
     type: "website",
     images: [
-      "https://lh3.google.com/u/0/d/13RxgBRLbUWFxc2lk8qpFrSH1ufEWLpjc=w2522-h1646-iv1?auditContext=prefetch",
+      "https://minhnhat.lazybook.vn/banner_mobile.jpg",
     ],
   },
   twitter: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
     description: "26-10-2025 l Chúng mình cưới ♥",
     images: [
-      "https://lh3.google.com/u/0/d/13RxgBRLbUWFxc2lk8qpFrSH1ufEWLpjc=w2522-h1646-iv1?auditContext=prefetch",
+      "https://minhnhat.lazybook.vn/banner_desktop.jpg",
     ],
   },
   icons: {

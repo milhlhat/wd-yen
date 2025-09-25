@@ -206,14 +206,14 @@ export default function WeddingPage() {
               <div className="w-full h-px bg-white/30 my-6 sm:my-8 md:my-6"></div>
 
               <div className="space-y-3 sm:space-y-4 md:space-y-5">
-                <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-8 text-xl sm:text-2xl">
-                  <span className="font-quicksand font-medium">CHỦ NHẬT</span>
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-quicksand font-light">
+                <div className="grid grid-cols-3 items-center text-xl sm:text-2xl">
+                  <span className="font-quicksand font-medium text-right">09:15</span>
+                  <span className="text-5xl sm:text-6xl md:text-7xl font-quicksand font-light text-center">
                     26
                   </span>
-                  <span className="font-quicksand font-medium">09:15</span>
+                  <span className="font-quicksand font-medium text-left">CHỦ NHẬT</span>
                 </div>
-                <p className="text-lg sm:text-xl md:text-xl font-quicksand font-light">
+                <p className="text-lg sm:text-xl md:text-xl font-quicksand font-light text-center">
                   10 - 2025
                 </p>
               </div>

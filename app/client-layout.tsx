@@ -2,14 +2,13 @@
 
 import type React from "react";
 
+import { Analytics } from "@vercel/analytics/next";
 import {
+  Ballet,
+  EB_Garamond,
   Imperial_Script,
   Quicksand,
-  EB_Garamond,
-  Ballet,
 } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
 // <CHANGE> Configure Google Fonts with Vietnamese language support
@@ -46,8 +45,6 @@ export function ClientLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const searchParams = useSearchParams();
-
   return (
     <>
       <div

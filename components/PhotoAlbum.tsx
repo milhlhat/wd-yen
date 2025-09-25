@@ -6,8 +6,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useScrollEffects } from "@/hooks/use-scroll-effects";
 
+type PhotoItem =
+  | string
+  | {
+      src: string;
+      className?: string;
+      style?: React.CSSProperties;
+      alt?: string;
+    };
+
 interface PhotoAlbumProps {
-  photos: string[];
+  photos: PhotoItem[];
   autoSlideInterval?: number;
 }
 
@@ -18,6 +27,18 @@ export default function PhotoAlbum({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const albumSection = useScrollEffects({ threshold: 0.1 });
+
+  const resolvePhoto = (item: PhotoItem) => {
+    if (typeof item === "string") {
+      return { src: item, className: "", style: undefined as React.CSSProperties | undefined, alt: undefined as string | undefined };
+    }
+    return {
+      src: item.src,
+      className: item.className ?? "",
+      style: item.style,
+      alt: item.alt,
+    };
+  };
 
   useEffect(() => {
     if (isUserInteracting) return;
@@ -82,17 +103,21 @@ export default function PhotoAlbum({
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {photos.map((photo, index) => (
+              {photos.map((photo, index) => {
+                const resolved = resolvePhoto(photo);
+                return (
                 <div key={index} className="w-full flex-shrink-0">
                   <AspectRatio ratio={3 / 4}>
                     <img
-                      src={photo || "/placeholder.svg"}
-                      alt={`Wedding memory ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      src={resolved.src || "/placeholder.svg"}
+                      alt={resolved.alt ?? `Wedding memory ${index + 1}`}
+                      className={`w-full h-full object-cover ${resolved.className}`}
+                      style={resolved.style}
                     />
                   </AspectRatio>
                 </div>
-              ))}
+              );
+              })}
             </div>
           </div>
 
@@ -137,41 +162,51 @@ export default function PhotoAlbum({
           >
             {/* Left Photo */}
             <div className="flex-shrink-0">
-              <img
-                src={
-                  photos[
-                    (currentSlide + photos.length - 1) %
-                      photos.length
-                  ] ||
-                  "/placeholder.svg" ||
-                  "/placeholder.svg" ||
-                  "/placeholder.svg"
-                }
-                alt="Wedding memory"
-                className="w-80 h-96 object-cover rounded-2xl shadow-xl animate-fadeSwap"
-              />
+              {(() => {
+                const leftPhoto = resolvePhoto(
+                  photos[(currentSlide + photos.length - 1) % photos.length]
+                );
+                return (
+                  <img
+                    src={leftPhoto.src || "/placeholder.svg"}
+                    alt={leftPhoto.alt ?? "Wedding memory"}
+                    className={`w-80 h-96 object-cover rounded-2xl shadow-xl animate-fadeSwap ${leftPhoto.className}`}
+                    style={leftPhoto.style}
+                  />
+                );
+              })()}
             </div>
 
             {/* Center Main Photo */}
             <div className="flex-shrink-0">
-              <img
-                src={photos[currentSlide] || "/placeholder.svg"}
-                alt="Main wedding portrait"
-                className="w-96 h-[500px] object-cover rounded-2xl shadow-2xl animate-fadeSwap"
-              />
+              {(() => {
+                const centerPhoto = resolvePhoto(photos[currentSlide]);
+                return (
+                  <img
+                    src={centerPhoto.src || "/placeholder.svg"}
+                    alt={centerPhoto.alt ?? "Main wedding portrait"}
+                    className={`w-96 h-[500px] object-cover rounded-2xl shadow-2xl animate-fadeSwap ${centerPhoto.className}`}
+                    style={centerPhoto.style}
+                  />
+                );
+              })()}
             </div>
 
             {/* Right Photo */}
             <div className="flex-shrink-0">
-              <img
-                src={
-                  photos[
-                    (currentSlide + 1) % photos.length
-                  ] || "/placeholder.svg"
-                }
-                alt="Wedding memory"
-                className="w-80 h-96 object-cover rounded-2xl shadow-xl animate-fadeSwap"
-              />
+              {(() => {
+                const rightPhoto = resolvePhoto(
+                  photos[(currentSlide + 1) % photos.length]
+                );
+                return (
+                  <img
+                    src={rightPhoto.src || "/placeholder.svg"}
+                    alt={rightPhoto.alt ?? "Wedding memory"}
+                    className={`w-80 h-96 object-cover rounded-2xl shadow-xl animate-fadeSwap ${rightPhoto.className}`}
+                    style={rightPhoto.style}
+                  />
+                );
+              })()}
             </div>
           </div>
 

@@ -31,14 +31,31 @@ export default function WeddingPage() {
   const storyParallax = useParallax(0.2);
 
   const carouselPhotos = [
-    "./carosel_1.jpg",
+    {
+      src: "./carosel_1.jpg",
+    },
     "./carosel_2.jpg",
-    "./carosel_3.jpg",
-    "./carosel_4.jpg",
-    "./carosel_5.jpg",
-    "./carosel_6.jpg",
+    {
+      src: "./carosel_3.jpg",
+    },
+    {
+      src: "./carosel_4.jpg",
+      style: {},
+    },
+    {
+      src: "./carosel_5.jpg",
+      style: { objectPosition: "-70px top" },
+      alt: "Khoảnh khắc 5",
+    },
+    {
+      src: "./carosel_6.jpg",
+      style: { objectPosition: "center 0px" },
+    },
     "./carosel_7.jpg",
-    "./carosel_8.jpg",
+    {
+      src: "./carosel_8.jpg",
+      style: { objectPosition: "-200px top" },
+    },
   ];
 
   useEffect(() => {
@@ -207,11 +224,15 @@ export default function WeddingPage() {
 
               <div className="space-y-3 sm:space-y-4 md:space-y-5">
                 <div className="grid grid-cols-3 items-center text-xl sm:text-2xl">
-                  <span className="font-quicksand font-medium text-right">09:15</span>
+                  <span className="font-quicksand font-medium text-right">
+                    09:15
+                  </span>
                   <span className="text-5xl sm:text-6xl md:text-7xl font-quicksand font-light text-center">
                     26
                   </span>
-                  <span className="font-quicksand font-medium text-left">CHỦ NHẬT</span>
+                  <span className="font-quicksand font-medium text-left">
+                    CHỦ NHẬT
+                  </span>
                 </div>
                 <p className="text-lg sm:text-xl md:text-xl font-quicksand font-light text-center">
                   10 - 2025
@@ -260,19 +281,23 @@ export default function WeddingPage() {
       </section>
 
       {/* Couple Introduction Section */}
-      <section ref={coupleSection.elementRef} className="py-20 px-6 scroll-snap-start">
+      <section
+        ref={coupleSection.elementRef}
+        className="py-20 px-6 scroll-snap-start"
+      >
         <div className="max-w-6xl mx-auto">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            coupleSection.isVisible 
-              ? "animate-fadeInUp opacity-100" 
-              : "opacity-0 translate-y-8"
-          }`}>
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ${
+              coupleSection.isVisible
+                ? "animate-fadeInUp opacity-100"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-eb-garamond text-gray-800 mb-4">
-              Our Story
+              Giới thiệu
             </h2>
             <p className="text-lg font-quicksand text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Two hearts, one beautiful journey. Meet the couple who found love
-              in each other.
+              Cùng lắng nghe câu chuyện của chúng mình
             </p>
           </div>
 
@@ -302,7 +327,7 @@ export default function WeddingPage() {
                 <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-white/90 backdrop-blur-xl rounded-full px-6 py-3 shadow-lg border border-gray-200/50">
                     <p className="font-quicksand font-medium text-gray-800">
-                      The Bride
+                      Cô dâu
                     </p>
                   </div>
                 </div>
@@ -310,10 +335,10 @@ export default function WeddingPage() {
               <h3 className="text-3xl font-imperial-script text-gray-800 mb-4">
                 Ngọc Yến
               </h3>
-              <p className="font-quicksand text-gray-600 leading-relaxed max-w-sm mx-auto">
+              {/* <p className="font-quicksand text-gray-600 leading-relaxed max-w-sm mx-auto">
                 A beautiful heart with endless grace, making every day brighter
                 with her love and warmth.
-              </p>
+              </p> */}
             </div>
             {/* Groom */}
             <div
@@ -339,7 +364,7 @@ export default function WeddingPage() {
                 <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-white/90 backdrop-blur-xl rounded-full px-6 py-3 shadow-lg border border-gray-200/50">
                     <p className="font-quicksand font-medium text-gray-800">
-                      The Groom
+                      Chú rể
                     </p>
                   </div>
                 </div>
@@ -347,26 +372,28 @@ export default function WeddingPage() {
               <h3 className="text-3xl font-imperial-script text-gray-800 mb-4">
                 Minh Nhật
               </h3>
-              <p className="font-quicksand text-gray-600 leading-relaxed max-w-sm mx-auto">
+              {/* <p className="font-quicksand text-gray-600 leading-relaxed max-w-sm mx-auto">
                 A kind soul with a passion for life, bringing joy and laughter
                 to every moment we share together.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Photo Album Section */}
-      <PhotoAlbum photos={carouselPhotos} />
-
       {/* Love Story Section */}
-      <section ref={storySection.elementRef} className="py-20 px-6 bg-[#f3d9dc] scroll-snap-start">
+      <section
+        ref={storySection.elementRef}
+        className="py-20 px-6 bg-[#f3d9dc] scroll-snap-start"
+      >
         <div className="max-w-6xl mx-auto">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            storySection.isVisible 
-              ? "animate-bounceIn opacity-100" 
-              : "opacity-0 scale-95"
-          }`}>
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ${
+              storySection.isVisible
+                ? "animate-bounceIn opacity-100"
+                : "opacity-0 scale-95"
+            }`}
+          >
             <h2 className="text-5xl md:text-6xl font-eb-garamond text-gray-800 tracking-wide">
               LOVE STORY
             </h2>
@@ -375,7 +402,7 @@ export default function WeddingPage() {
           {/* Desktop layout with a centered vertical line */}
           <div className="relative hidden md:block">
             {/* Center vertical line */}
-            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2px] bg-gray-300"></div>
+            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2px] bg-white"></div>
 
             {/* Top-left photo + caption on right */}
             <div className="absolute top-0 right-1/2 -translate-x-[60px] w-80">
@@ -389,7 +416,7 @@ export default function WeddingPage() {
                 />
               </div>
             </div>
-            <p className="absolute top-6 left-1/2 translate-x-[20px] max-w-xs text-gray-500 text-xl font-quicksand font-light leading-relaxed text-center">
+            <p className="absolute top-30 left-1/2 translate-x-[20px] max-w-xs text-[#672b2b] text-xl font-quicksand font-light leading-relaxed text-center">
               Chú rể gặp cô dâu ở<br />
               <span className="italic">'Binh Nguyên Vô Tận'</span>
             </p>
@@ -404,8 +431,8 @@ export default function WeddingPage() {
                 />
               </div>
             </div>
-            <p className="absolute top-[480px] right-1/2 -translate-x-[20px] max-w-xs text-gray-500 text-xl font-quicksand font-light leading-relaxed text-center">
-              Cùng nhau tốt nghiệp 🎓
+            <p className="absolute top-[480px] right-1/2 -translate-x-[20px] max-w-xs text-[#672b2b] text-xl font-quicksand font-light leading-relaxed text-center">
+              Cùng nhau tốt nghiệp
             </p>
 
             {/* Bottom-left photo + caption on right */}
@@ -418,11 +445,11 @@ export default function WeddingPage() {
                 />
               </div>
             </div>
-            <p className="absolute top-[800px] left-1/2 translate-x-[20px] max-w-xs text-gray-500 text-xl font-quicksand font-light leading-relaxed text-center">
+            <p className="absolute top-[800px] left-1/2 translate-x-[20px] max-w-xs text-[#672b2b] text-xl font-quicksand font-light leading-relaxed text-center">
               Cùng nhau đi du lịch
             </p>
 
-            {/* Fourth event - Cầu Hôn Lung Linh 💍 */}
+            {/* Fourth event - Cầu Hôn Lung Linh  */}
             <div className="absolute top-[950px] left-1/2 translate-x-[60px] w-80">
               <div className="rounded-[28px] p-1 bg-white shadow-2xl">
                 <img
@@ -432,8 +459,8 @@ export default function WeddingPage() {
                 />
               </div>
             </div>
-            <p className="absolute top-[1100px] right-1/2 -translate-x-[20px] max-w-xs text-gray-500 text-xl font-quicksand font-light leading-relaxed text-center">
-              Cầu Hôn Lung Linh 💍
+            <p className="absolute top-[1100px] right-1/2 -translate-x-[20px] max-w-xs text-[#672b2b] text-xl font-quicksand font-light leading-relaxed text-center">
+              Cầu Hôn Lung Linh
             </p>
 
             {/* Fifth event - Dạm ngõ */}
@@ -446,11 +473,11 @@ export default function WeddingPage() {
                 />
               </div>
             </div>
-            <p className="absolute top-[1430px] left-1/2 translate-x-[20px] max-w-xs text-gray-500 text-xl font-quicksand font-light leading-relaxed text-center">
+            <p className="absolute top-[1430px] left-1/2 translate-x-[20px] max-w-xs text-[#672b2b] text-xl font-quicksand font-light leading-relaxed text-center">
               "Dạm ngõ"
             </p>
 
-            {/* Sixth event - Về chung một nhà 🏡 */}
+            {/* Sixth event - Về chung một nhà   */}
             <div className="absolute top-[1590px] left-1/2 translate-x-[60px] w-80">
               <div className="rounded-[28px] p-1 bg-white shadow-2xl">
                 <img
@@ -460,8 +487,8 @@ export default function WeddingPage() {
                 />
               </div>
             </div>
-            <p className="absolute top-[1740px] right-1/2 -translate-x-[20px] max-w-xs text-gray-500 text-xl font-quicksand font-light leading-relaxed text-center">
-              Về chung một nhà 🏡
+            <p className="absolute top-[1740px] right-1/2 -translate-x-[20px] max-w-xs text-[#672b2b] text-xl font-quicksand font-light leading-relaxed text-center">
+              Về chung một nhà
             </p>
 
             {/* Spacer for desktop layout height to reveal absolutely positioned items */}
@@ -478,7 +505,7 @@ export default function WeddingPage() {
                   className="w-full h-100 object-cover rounded-[24px] object-[0_-10px]"
                 />
               </div>
-              <p className="text-lg font-quicksand text-gray-500 font-light leading-relaxed">
+              <p className="text-lg font-quicksand text-[#672b2b] font-light leading-relaxed">
                 Chú rể gặp cô dâu ở<br />
                 <span className="italic">'Binh Nguyên Vô Tận'</span>
               </p>
@@ -492,8 +519,8 @@ export default function WeddingPage() {
                   className="w-full h-100 object-cover rounded-[24px]"
                 />
               </div>
-              <p className="text-lg font-quicksand text-gray-500 font-light leading-relaxed">
-                Cùng nhau tốt nghiệp 🎓
+              <p className="text-lg font-quicksand text-[#672b2b] font-light leading-relaxed">
+                Cùng nhau tốt nghiệp
               </p>
             </div>
 
@@ -505,7 +532,7 @@ export default function WeddingPage() {
                   className="w-full h-100 object-cover rounded-[24px]"
                 />
               </div>
-              <p className="text-lg font-quicksand text-gray-500 font-light leading-relaxed">
+              <p className="text-lg font-quicksand text-[#672b2b] font-light leading-relaxed">
                 Cùng nhau đi du lịch
               </p>
             </div>
@@ -518,8 +545,8 @@ export default function WeddingPage() {
                   className="w-full h-100 object-cover rounded-[24px]"
                 />
               </div>
-              <p className="text-lg font-quicksand text-gray-500 font-light leading-relaxed">
-                Cầu Hôn Lung Linh 💍
+              <p className="text-lg font-quicksand text-[#672b2b] font-light leading-relaxed">
+                Cầu Hôn Lung Linh
               </p>
             </div>
 
@@ -531,7 +558,7 @@ export default function WeddingPage() {
                   className="w-full h-100 object-cover rounded-[24px]"
                 />
               </div>
-              <p className="text-lg font-quicksand text-gray-500 font-light leading-relaxed">
+              <p className="text-lg font-quicksand text-[#672b2b] font-light leading-relaxed">
                 "Dạm ngõ"
               </p>
             </div>
@@ -544,29 +571,39 @@ export default function WeddingPage() {
                   className="w-full h-100 object-cover rounded-[24px]  object-[0_-10px]"
                 />
               </div>
-              <p className="text-lg font-quicksand text-gray-500 font-light leading-relaxed">
-                Về chung một nhà 🏡
+              <p className="text-lg font-quicksand text-[#672b2b] font-light leading-relaxed">
+                Về chung một nhà
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Photo Album Section */}
+      <PhotoAlbum photos={carouselPhotos} />
+
       {/* Gift Section - Mừng Cưới */}
-      <section ref={giftSection.elementRef} id="gift" className="py-20 px-6 bg-white scroll-snap-start">
+      <section
+        ref={giftSection.elementRef}
+        id="gift"
+        className="py-20 px-6 bg-white scroll-snap-start"
+      >
         <div className="max-w-3xl mx-auto text-center">
-          <div className={`transition-all duration-1000 ${
-            giftSection.isVisible 
-              ? "animate-scaleIn opacity-100" 
-              : "opacity-0 scale-90"
-          }`}>
+          <div
+            className={`transition-all duration-1000 ${
+              giftSection.isVisible
+                ? "animate-scaleIn opacity-100"
+                : "opacity-0 scale-90"
+            }`}
+          >
             <h2 className="text-5xl md:text-6xl font-ballet text-[#8c4a4a] mb-6">
               Mừng Cưới
             </h2>
             <p className="text-gray-600 font-quicksand leading-relaxed max-w-2xl mx-auto">
-              Mình rất muốn được chụp chung với bạn những tấm hình kỷ niệm vì vậy
-              hãy đến sớm hơn một chút bạn yêu nhé! Đám cưới của chúng mình sẽ
-              trọn vẹn hơn khi có thêm lời chúc phúc và sự hiện diện của các bạn.
+              Mình rất muốn được chụp chung với bạn những tấm hình kỷ niệm vì
+              vậy hãy đến sớm hơn một chút bạn yêu nhé! Đám cưới của chúng mình
+              sẽ trọn vẹn hơn khi có thêm lời chúc phúc và sự hiện diện của các
+              bạn.
             </p>
           </div>
 
@@ -606,7 +643,7 @@ export default function WeddingPage() {
           </div>
 
           <p className="mt-6 text-sm text-gray-600 font-quicksand">
-            ** Bấm vào STK để copy hoặc bấm vào ảnh QR để lưu
+            Bấm vào STK để copy hoặc bấm vào ảnh QR để lưu
           </p>
         </div>
       </section>
@@ -618,11 +655,13 @@ export default function WeddingPage() {
         className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50 scroll-snap-start"
       >
         <div className="max-w-2xl mx-auto">
-          <div className={`text-center mb-12 transition-all duration-1000 ${
-            guestSection.isVisible 
-              ? "animate-slideInFromBottom opacity-100" 
-              : "opacity-0 translate-y-12"
-          }`}>
+          <div
+            className={`text-center mb-12 transition-all duration-1000 ${
+              guestSection.isVisible
+                ? "animate-slideInFromBottom opacity-100"
+                : "opacity-0 translate-y-12"
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-eb-garamond text-gray-800 mb-4">
               Xác Nhận Tham Dự
             </h2>
@@ -760,13 +799,19 @@ export default function WeddingPage() {
         </div>
       </section>
       {/* Thank You Section */}
-      <section ref={thankYouSection.elementRef} id="thank-you" className="py-24 px-6 bg-white scroll-snap-start">
+      <section
+        ref={thankYouSection.elementRef}
+        id="thank-you"
+        className="py-24 px-6 bg-white scroll-snap-start"
+      >
         <div className="max-w-4xl mx-auto">
-          <div className={`relative flex flex-col items-center transition-all duration-1000 ${
-            thankYouSection.isVisible 
-              ? "animate-bounceIn opacity-100" 
-              : "opacity-0 scale-90"
-          }`}>
+          <div
+            className={`relative flex flex-col items-center transition-all duration-1000 ${
+              thankYouSection.isVisible
+                ? "animate-bounceIn opacity-100"
+                : "opacity-0 scale-90"
+            }`}
+          >
             {/* Floral background frame */}
             <img
               src="/thankyou_flower_background.png"

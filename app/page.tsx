@@ -398,7 +398,7 @@ export default function WeddingPage() {
                 : "opacity-0 scale-95"
             }`}
           >
-            <h2 className="text-5xl md:text-6xl font-eb-garamond text-gray-800 tracking-wide">
+            <h2 className="text-5xl md:text-6xl mb-3 font-eb-garamond text-gray-800 tracking-wide">
               LOVE STORY
             </h2>
             <p className="text-lg font-quicksand text-gray-600 max-w-2xl mx-auto leading-relaxed">

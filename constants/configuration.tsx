@@ -1,22 +1,24 @@
 export const CONFIGURATION = {
-  groomFirst: true,
+  groomFirst: false,
   groomName: "Minh Nhật",
   brideName: "Ngọc Yến",
-  dayOfWeek: "Chủ nhật",
-  day: "16",
+  dayOfWeek: "Thứ Bảy",
+  time: "",
+  day: "25",
   month: "10",
   year: "2025",
-  mapUrl: "https://maps.app.goo.gl/rW1LCytsJxrzcdWz5?g_st=ipc",
+  mapUrl: "https://maps.app.goo.gl/abbKDSVQrFjokWFL8?g_st=ipc",
   address: (
     <div>
-      120 Khu Bình Lục Hạ, Phường Đông Triều
+      179 Thanh Xuân, Phường Chí Linh
       <br />
-      Tỉnh Quảng Ninh
+      TP. Hải Phòng
     </div>
   ),
-  avatar: "./the_groom_avatar.jpg",
+  avatar: "./the_bride_avatar.jpg",
   qr: "QR_banking.jpg",
-  bankAccountName: "Nguyễn Minh Nhật",
-  bankAccountNumber: "nhat1999",
-  bankName: "TPBank",
+  bankAccountName: "Nguyễn Thị Ngọc Yến",
+  bankAccountNumber: "29971367",
+  bankName: "ACB",
+  acceptInviteAPIUrl: `https://wedding-server-alpha.vercel.app/api/bride/accept-invite`,
 };

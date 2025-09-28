@@ -84,10 +84,6 @@ export default function WeddingPage() {
     setIsSubmitting(true);
     setSubmitSuccess(false);
 
-    const baseUrlEnv =
-      process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000";
-    const baseUrl = baseUrlEnv.replace(/\/$/, "");
-
     const accepted = guestForm.attendance === "yes";
     const payload: {
       name: string;
@@ -102,7 +98,7 @@ export default function WeddingPage() {
     };
 
     try {
-      const res = await fetch(`${baseUrl}/api/groom/accept-invite`, {
+      const res = await fetch(CONFIGURATION.acceptInviteAPIUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -129,10 +125,10 @@ export default function WeddingPage() {
   };
 
   // Gift section helpers
-  const bankAccountOwner = "Nguyễn Minh Nhật";
-  const bankAccountNumber = "nhat1999";
-  const bankName = "TPBank";
-  const qrImageSrc = "/QR_banking.jpg"; // Replace with your QR image path
+  const bankAccountOwner = CONFIGURATION.bankAccountName;
+  const bankAccountNumber = CONFIGURATION.bankAccountNumber;
+  const bankName = CONFIGURATION.bankName;
+  const qrImageSrc = CONFIGURATION.qr;
 
   const copyAccountNumber = async () => {
     try {
@@ -147,7 +143,7 @@ export default function WeddingPage() {
     try {
       const link = document.createElement("a");
       link.href = qrImageSrc;
-      link.download = "qr-minh-nhat-tpbank.png";
+      link.download = "wedding-qr.jpg";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -229,17 +225,17 @@ export default function WeddingPage() {
               <div className="space-y-3 sm:space-y-4 md:space-y-5">
                 <div className="grid grid-cols-3 items-center text-xl sm:text-2xl">
                   <span className="font-quicksand font-medium text-right">
-                    09:15
+                    {CONFIGURATION.dayOfWeek}
                   </span>
                   <span className="text-5xl sm:text-6xl md:text-7xl font-quicksand font-light text-center">
-                    26
+                    {CONFIGURATION.day}
                   </span>
                   <span className="font-quicksand font-medium text-left">
-                    CHỦ NHẬT
+                    Tháng {CONFIGURATION.month}
                   </span>
                 </div>
                 <p className="text-lg sm:text-xl md:text-xl font-quicksand font-light text-center">
-                  10 - 2025
+                  Năm {CONFIGURATION.year}
                 </p>
               </div>
 
@@ -250,9 +246,7 @@ export default function WeddingPage() {
                   Địa điểm tổ chức
                 </p>
                 <p className="text-xs sm:text-sm md:text-sm font-quicksand opacity-90 leading-relaxed">
-                  120 Khu Bình Lục Hạ, Phường Đông Triều
-                  <br />
-                  Tỉnh Quảng Ninh
+                  {CONFIGURATION.address}
                 </p>
               </div>
 
@@ -262,19 +256,19 @@ export default function WeddingPage() {
                   onClick={() =>
                     window.open(CONFIGURATION.mapUrl as string, "_blank")
                   }
-                  className="p-3 sm:p-4 md:p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300"
+                  className="cursor-pointer p-3 sm:p-4 md:p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300"
                 >
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </button>
                 <button
                   onClick={() => scrollToSection("gift")}
-                  className="p-3 sm:p-4 md:p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300"
+                  className="cursor-pointer p-3 sm:p-4 md:p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300"
                 >
                   <Gift className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </button>
                 <button
                   onClick={() => scrollToSection("guest")}
-                  className="p-3 sm:p-4 md:p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300"
+                  className="cursor-pointer p-3 sm:p-4 md:p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300"
                 >
                   <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </button>

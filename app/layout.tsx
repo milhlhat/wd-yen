@@ -2,7 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClientLayout } from "./client-layout";
-import { CONFIGURATION } from "@/constants/configuration";
+import { CONFIGURATION, ENV } from "@/constants/configuration";
 
 export const metadata: Metadata = {
   title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
     description: `${CONFIGURATION.day}-${CONFIGURATION.month}-${CONFIGURATION.year} l Chúng mình cưới ♥`,
     type: "website",
+    url: ENV.origin,
+    siteName: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
+    locale: "vi_VN",
     images: [
       {
         width: 1200,

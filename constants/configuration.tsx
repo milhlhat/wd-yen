@@ -1,4 +1,4 @@
-const ENV = {
+export const ENV = {
   origin: process.env.NEXT_PUBLIC_ORIGIN || "https://ngocyen.lazybook.vn",
 } as const;
 

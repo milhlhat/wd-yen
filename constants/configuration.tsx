@@ -1,3 +1,7 @@
+const ENV = {
+  origin: process.env.NEXT_PUBLIC_ORIGIN || "https://ngocyen.lazybook.vn",
+} as const;
+
 export const CONFIGURATION = {
   groomFirst: false,
   groomName: "Minh Nhật",
@@ -21,4 +25,5 @@ export const CONFIGURATION = {
   bankAccountNumber: "29971367",
   bankName: "ACB",
   acceptInviteAPIUrl: `https://wedding-server-alpha.vercel.app/api/bride/accept-invite`,
+  SEOThumbnail: `${ENV.origin}/web-thumb.jpg`,
 };

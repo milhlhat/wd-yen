@@ -1,7 +1,8 @@
-import type React from "react"
-import type { Metadata } from "next"
-import "./globals.css"
-import { ClientLayout } from "./client-layout"
+import type React from "react";
+import type { Metadata } from "next";
+import "./globals.css";
+import { ClientLayout } from "./client-layout";
+import { CONFIGURATION } from "@/constants/configuration";
 
 export const metadata: Metadata = {
   title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
@@ -11,7 +12,11 @@ export const metadata: Metadata = {
     description: "26-10-2025 l Chúng mình cưới ♥",
     type: "website",
     images: [
-      "web-thumb.jpg",
+      {
+        width: 1200,
+        height: 630,
+        url: CONFIGURATION.SEOThumbnail,
+      },
     ],
   },
   twitter: {
@@ -19,7 +24,11 @@ export const metadata: Metadata = {
     title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
     description: "26-10-2025 l Chúng mình cưới ♥",
     images: [
-      "web-thumb.jpg",
+      {
+        width: 1200,
+        height: 630,
+        url: CONFIGURATION.SEOThumbnail,
+      },
     ],
   },
   icons: {
@@ -31,12 +40,12 @@ export const metadata: Metadata = {
       },
     ],
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -44,5 +53,5 @@ export default function RootLayout({
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
-  )
+  );
 }

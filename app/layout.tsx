@@ -5,8 +5,12 @@ import { ClientLayout } from "./client-layout";
 import { CONFIGURATION, ENV } from "@/constants/configuration";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(ENV.origin),
   title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
   description: `${CONFIGURATION.day}-${CONFIGURATION.month}-${CONFIGURATION.year} l Chúng mình cưới ♥`,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
     description: `${CONFIGURATION.day}-${CONFIGURATION.month}-${CONFIGURATION.year} l Chúng mình cưới ♥`,
@@ -19,6 +23,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         url: CONFIGURATION.SEOThumbnail,
+        alt: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
       },
     ],
   },

@@ -6,10 +6,10 @@ import { CONFIGURATION } from "@/constants/configuration";
 
 export const metadata: Metadata = {
   title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
-  description: "26-10-2025 l Chúng mình cưới ♥",
+  description: `${CONFIGURATION.day}-${CONFIGURATION.month}-${CONFIGURATION.year} l Chúng mình cưới ♥`,
   openGraph: {
     title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
-    description: "26-10-2025 l Chúng mình cưới ♥",
+    description: `${CONFIGURATION.day}-${CONFIGURATION.month}-${CONFIGURATION.year} l Chúng mình cưới ♥`,
     type: "website",
     images: [
       {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Thiệp mời Đám cưới Minh Nhật & Ngọc Yến",
-    description: "26-10-2025 l Chúng mình cưới ♥",
+    description: `${CONFIGURATION.day}-${CONFIGURATION.month}-${CONFIGURATION.year} l Chúng mình cưới ♥`,
     images: [
       {
         width: 1200,
